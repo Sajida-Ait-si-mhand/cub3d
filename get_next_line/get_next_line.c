@@ -96,7 +96,6 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*stash;
 
-
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	if (!stash)
@@ -112,5 +111,4 @@ char	*get_next_line(int fd)
 	line = return_a_line(stash);
 	stash = rest_stash(stash);
 	return (line);
-	// printf("ana fl5re");
 }

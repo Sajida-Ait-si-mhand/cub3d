@@ -1,5 +1,17 @@
-#ifndef COLORS_H
-# define COLORS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 00:31:25 by saait-si          #+#    #+#             */
+/*   Updated: 2025/03/23 00:38:48 by saait-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef COLOR_H
+# define COLOR_H
 
 # define WR_RED "\x1b[31m"
 # define WR_GREEN "\x1b[32m"
@@ -27,4 +39,5 @@
 # define CYAN 0x00FFFF
 # define DARK_MAGENTA 0x8B008B
 # define MAGENTA 0xFF00FF
-#endif
+
+#endif /* COLOR_H */

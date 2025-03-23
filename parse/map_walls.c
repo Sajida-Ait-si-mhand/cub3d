@@ -1,55 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_walls.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 02:39:58 by saait-si          #+#    #+#             */
+/*   Updated: 2025/03/23 02:40:00 by saait-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/main.h"
 
-
-bool	check_empty_gaps(t_parse *parse, char **map, int i)
+bool	ft_check_map_borders(t_parse *parse, char **map)
 {
-	size_t	j;
+	int	i;
+	int	width;
+	int	first_index;
+	int	last_index;
 
-	j = 0;
-	while (map[i][j])
+	i = 0;
+	while (i < parse->map_height)
 	{
-		if (map[i][j] == '0')
-		{
-			// printf ("this is the output  %s\n",map[i] );
-			if (!map[i][j + 1] || !ft_strchr(parse->valid_set, map[i][j + 1]))
-				return (false);
-			if (i <= 0 || j >= ft_strlen(map[i - 1])
-				|| !ft_strchr(parse->valid_set, map[i - 1][j]))
-				return (false);
-			if (i >= parse->map_height || j >= ft_strlen(map[i + 1])
-				|| !ft_strchr(parse->valid_set, map[i + 1][j]))
-				return (false);
-		}
-		j++;
+		width = ft_strlen(map[i]);
+		first_index = 0;
+		last_index = width - 1;
+		while (map[i][first_index] == ' ' || map[i][first_index] == '\t')
+			first_index++;
+		while (map[i][last_index] == ' ' || map[i][last_index] == '\n'
+			|| map[i][last_index] == '\t')
+			last_index--;
+		if (map[i][first_index] != '1' || map[i][last_index] != '1')
+			return (ft_error(" MAP BORDER", map[i]), false);
+		i++;
 	}
 	return (true);
 }
 
-bool	check_boundaries(char *line)
+void	calculate_map_width(t_parse *parse, char **map)
 {
 	int	i;
+	int	max_width;
+	int	current_width;
 
 	i = 0;
-	while (line[i] && ft_isspace(line[i]))
+	max_width = 0;
+	while (map[i])
+	{
+		current_width = ft_strlen(map[i]);
+		if (current_width > max_width)
+			max_width = current_width;
 		i++;
-	if (!line[i] || line[i] != '1')
-		return (false);
-	i = ft_strlen(line) - 1;
-	while (i >= 0 && ft_isspace(line[i]))
-		i--;
-	if (i < 0 || line[i] != '1')
-		return (false);
-	return (true);
+	}
+	parse->map_width = max_width;
 }
 
 bool	check_player_surronding(t_parse *parse, int i, int j)
 {
 	if (j <= 0 || ft_isspace(parse->map[i][j - 1]))
-		return (true);
+		return (printf("SSSs"), true);
 	if (j >= (int)ft_strlen(parse->map[i]) || ft_isspace(parse->map[i][j + 1]))
-		return (true);
-	if (i <= 0 || j >= (int)ft_strlen(parse->map[i - 1])
-		|| ft_isspace(parse->map[i - 1][j]))
 		return (true);
 	if (i >= parse->map_height || j >= (int)ft_strlen(parse->map[i + 1])
 		|| ft_isspace(parse->map[i + 1][j]))
@@ -57,6 +67,14 @@ bool	check_player_surronding(t_parse *parse, int i, int j)
 	parse->player_x = j;
 	parse->player_y = i;
 	parse->player_dir = parse->map[i][j];
+	if (parse->player_dir == 'W')
+		parse->player_angle = 0;
+	if (parse->player_dir == 'N')
+		parse->player_angle = 90;
+	if (parse->player_dir == 'E')
+		parse->player_angle = 180;
+	if (parse->player_dir == 'S')
+		parse->player_angle = 270;
 	return (false);
 }
 
@@ -76,7 +94,7 @@ bool	check_player(t_parse *parse)
 			if (ft_strchr("NEWS", parse->map[i][j]))
 			{
 				if (check_player_surronding(parse, i, j))
-					return (false);
+					return (printf("wooo"), false);
 				count++;
 			}
 		}
