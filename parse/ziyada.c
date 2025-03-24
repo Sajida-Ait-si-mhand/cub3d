@@ -14,15 +14,15 @@
 
 int	ft_isspace(int c)
 {
-	return (c == ' '  || c == '\r' || c == '\b');
+	return (c == ' ' || c == '\r' || c == '\b');
 }
 
-int 	ft_error(t_parse *parse, char *str, char *arg)
+int	ft_error(t_parse *parse, char *str, char *arg)
 {
 	free_parser(&parse);
 	(void)arg;
 	printf("\033[0;31m Error: %s \033[0m", str);
-	return  (1);
+	return (1);
 }
 
 void	ft_check_rgb_c(t_parse *parse, int r, int g, int b)

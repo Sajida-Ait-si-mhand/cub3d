@@ -94,7 +94,6 @@ void	draw_column(t_data *data, t_ray *ray, int column)
 		my_mlx_pixel_put(data, column, i++, data->floor);
 }
 
-
 void	raycasting(t_data *data)
 {
 	t_ray	ray;

@@ -12,13 +12,13 @@
 
 #include "../include/cub3d.h"
 
-float normalize_angle(float angle)
+float	normalize_angle(float angle)
 {
-    while (angle < 0)
-        angle += 360;
-    while (angle >= 360)
-        angle -= 360;
-    return angle;
+	while (angle < 0)
+		angle += 360;
+	while (angle >= 360)
+		angle -= 360;
+	return (angle);
 }
 
 void	clean_exit(t_data *data, int code)

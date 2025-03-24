@@ -14,9 +14,9 @@
 # define MAIN_H
 
 # include "../get_next_line/get_next_line.h"
-# include "color.h"
 # include "../include/new.h"
 # include "../libft/libft.h"
+# include "color.h"
 # include <ctype.h>
 # include <fcntl.h>
 # include <stdbool.h>
@@ -25,7 +25,7 @@
 # include <unistd.h>
 
 int		ft_isspace(int c);
-int	    ft_error(t_parse *parse, char *str, char *arg);
+int		ft_error(t_parse *parse, char *str, char *arg);
 bool	is_empty_line(char *line);
 int		ft_color(t_parse *parse, char *line);
 void	calculate_map_width(t_parse *parse, char **map);
