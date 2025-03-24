@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:13:51 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/24 01:28:35 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 02:05:08 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,6 @@ int	validation_extantion(t_parse *mapp, int ac, char **av)
 	return (1);
 }
 
-// int	main(int ac, char **av)
-// {
-// 	t_parse	parse;
-
-// 	ft_memset(&parse, 0, sizeof(t_parse));
-// 	parse.floor_color = -1;
-// 	parse.ceil_color = -1;
-// 	parse.valid_set = "01NEWS";
-// 	validation_extantion(&parse, ac, av);
-// 	if (ft_parse(&parse))
-// 		return (free_parser(parse), EXIT_FAILURE);
-		
-// 	// free_mapping(parse->map);
-// 	merge(&parse);
-// 	return (0);
-// }
-
 int	main(int ac, char **av)
 {
 	t_parse	*parse;
@@ -58,11 +41,9 @@ int	main(int ac, char **av)
 	parse->floor_color = -1;
 	parse->ceil_color = -1;
 	parse->valid_set = "01NEWS";
-
 	validation_extantion(parse, ac, av);
 	if (ft_parse(parse))
 		return (free_parser(&parse), EXIT_FAILURE);
-
 	merge(parse);
 	return (0);
 }

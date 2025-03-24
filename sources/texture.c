@@ -15,7 +15,7 @@
 void	init_textures(t_data *data, t_parse *parse)
 {
 	int	i;
-	int count;
+	int	count;
 
 	i = -1;
 	count = 4;

@@ -95,8 +95,8 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*stash;
-	char *tmp1;
-	char *tmp2;
+	char		*tmp1;
+	char		*tmp2;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

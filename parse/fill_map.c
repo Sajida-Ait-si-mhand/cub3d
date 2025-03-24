@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:39:43 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 23:05:39 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 02:24:47 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	**ft_read_map(char **arr, char *new, int *size)
 	if (!new_arr)
 		return (NULL);
 	i = 0;
-	printf("++++++++-> %d\n", *size);
 	while (i < *size)
 	{
 		new_arr[i] = arr[i];
@@ -75,10 +74,10 @@ int	check_valid_map_chars(char *line, char *valid_chars)
 	return (0);
 }
 
-int    check_zero_space(t_parse *parse)
+int	check_zero_space(t_parse *parse)
 {
-    int    i;
-    int    j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (parse->map[++i])
@@ -88,14 +87,16 @@ int    check_zero_space(t_parse *parse)
 		{
 			if (parse->map[i][j] == '0')
 			{
-				if ( parse->map[i][j + 1] == ' ')
-					return (ft_error(parse, " '0' space in right", &parse->map[i][j]), 1);
+				if (parse->map[i][j + 1] == ' ')
+					return (ft_error(parse, "0 ◀", &parse->map[i][j]), 1);
 				if (j > 0 && parse->map[i][j - 1] == ' ')
-					return (ft_error(parse, " '0' space in left", &parse->map[i][j]), 1);
-				if (i > 0 && (parse->map[i - 1][j] == ' ' || (int)ft_strlen(parse->map[i - 1]) <= j))
-					return (ft_error(parse, " '0' space in above", &parse->map[i][j]), 1);
-				if (parse->map[i + 1] != NULL && (parse->map[i + 1][j] == ' ' || (int)ft_strlen(parse->map[i + 1]) <= j))
-					return (ft_error(parse, " '0' space in below", &parse->map[i][j]), 1);
+					return (ft_error(parse, "0 ➤", &parse->map[i][j]), 1);
+				if (i > 0 && (parse->map[i - 1][j] == ' '
+					|| (int)ft_strlen(parse->map[i - 1]) <= j))
+					return (ft_error(parse, "0 ▲", &parse->map[i][j]), 1);
+				if (parse->map[i + 1] != NULL && (parse->map[i + 1][j] == ' '
+					|| (int)ft_strlen(parse->map[i + 1]) <= j))
+					return (ft_error(parse, "0 ⬇", &parse->map[i][j]), 1);
 			}
 		}
 	}
@@ -105,7 +106,6 @@ int    check_zero_space(t_parse *parse)
 int	get_map_line(t_parse *parse, char *line)
 {
 	from_new_line_to_ziroo(line);
-	printf("dwed %s\n", line);
 	if (check_valid_map_chars(line, parse->valid_set) == 1)
 		return (1);
 	parse->map = ft_read_map(parse->map, line, &parse->map_height);

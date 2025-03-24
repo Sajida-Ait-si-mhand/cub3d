@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:05 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 21:43:33 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 02:20:16 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@ bool	check_f_and_last_line(char **line, int height)
 	while (line[0][f])
 	{
 		if (line[0][f] == '0')
-			return (ft_error(NULL, "👾 YOU NEED '1' IN FIRST ROW 👾", line[0]), false);
+			return (ft_error(NULL, "👾 YOU NEED '1' IN FIRST ROW 👾", line[0]),
+				false);
 		f++;
 	}
 	f = 0;
 	while (line[height - 1][f])
 	{
 		if (line[height - 1][f] == '0')
-			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾", line[height - 1]),
-				false);
+			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾",
+					line[height - 1]), false);
 		f++;
 	}
 	return (true);
@@ -50,8 +51,9 @@ bool	ft_check_map_spaces_above_zero(t_parse *parse, char **map)
 			if (map[i][j] == '0')
 			{
 				if (map[i - 1][j] == ' ')
-					return (ft_error(parse, "MAP ERROR: Space above '0' detected!",
-							map[i]), false);
+					return (ft_error(parse,
+							"MAP ERROR: Space above '0' detected!", map[i]),
+						false);
 			}
 			j++;
 		}
@@ -70,11 +72,11 @@ bool	validate_map(t_parse *parse)
 	if (parse->map_height < 3)
 		return (false);
 	if (!ft_check_map_borders(parse, copy))
-		return (printf("here1"), free_mapping(copy), false);
+		return (free_mapping(copy), false);
 	if (!check_f_and_last_line(copy, parse->map_height))
-		return (printf("here2"), free_mapping(copy), false);
+		return (free_mapping(copy), false);
 	if (!check_player(parse))
-		return (printf("here3"), free_mapping(copy), false);
+		return (free_mapping(copy), false);
 	calculate_map_width(parse, copy);
 	return (free_mapping(copy), true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:19 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/24 01:33:22 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 02:04:28 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ char	*get_texture_path(char *path)
 	if (len < 5 || ft_strncmp(path + len - 4, ".xpm", 4))
 		return (print_err(NULL, "Invalid texture path (must be .xpm)", 1),
 			NULL);
-	
 	line = ft_strdup(path);
 	if (!line)
 		return (NULL);
-	// free(path);
 	return (line);
 }
 
@@ -36,7 +34,6 @@ int	fill_textures_paths(t_parse *parse, char *path, char c)
 	texture_path = get_texture_path(path);
 	if (!texture_path)
 		return (1);
-	
 	if (c == 'N')
 		parse->tex_path[0] = texture_path;
 	else if (c == 'S')

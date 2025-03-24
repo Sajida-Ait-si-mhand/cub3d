@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_walls.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:39:58 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 21:40:41 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 02:03:43 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	calculate_map_width(t_parse *parse, char **map)
 bool	check_player_surronding(t_parse *parse, int i, int j)
 {
 	if (j <= 0 || ft_isspace(parse->map[i][j - 1]))
-		return (printf("SSSs"), true);
+		return (true);
 	if (j >= (int)ft_strlen(parse->map[i]) || ft_isspace(parse->map[i][j + 1]))
 		return (true);
 	if (i >= parse->map_height || j >= (int)ft_strlen(parse->map[i + 1])
@@ -94,7 +94,7 @@ bool	check_player(t_parse *parse)
 			if (ft_strchr("NEWS", parse->map[i][j]))
 			{
 				if (check_player_surronding(parse, i, j))
-					return (printf("wooo"), false);
+					return (false);
 				count++;
 			}
 		}
