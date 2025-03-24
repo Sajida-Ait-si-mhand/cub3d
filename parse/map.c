@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:05 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/24 02:20:16 by saait-si         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:50:15 by ael-mejd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ bool	check_f_and_last_line(char **line, int height)
 	while (line[height - 1][f])
 	{
 		if (line[height - 1][f] == '0')
-			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾",
-					line[height - 1]), false);
+			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾", line[height
+					- 1]), false);
 		f++;
 	}
 	return (true);
@@ -86,10 +86,6 @@ int	validate_and_close(t_parse *parse)
 	if (!validate_map(parse))
 	{
 		close(parse->fd);
-		free(parse->tex_path[0]);
-		free(parse->tex_path[1]);
-		free(parse->tex_path[2]);
-		free(parse->tex_path[3]);
 		return (print_err(NULL, "Invalid map", 1));
 	}
 	if (parse->texture_count != 4 || parse->floor_color == -1
