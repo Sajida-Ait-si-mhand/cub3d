@@ -6,7 +6,7 @@
 /*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:28 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 21:52:40 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:30:18 by ael-mejd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ int 	ft_error(t_parse *parse, char *str, char *arg)
 	free_parser(&parse);
 	(void)arg;
 	printf("\033[0;31m Error: %s \033[0m", str);
-	// if (arg)
-	// 	printf(":\033[38;5;121m %s \033[0m", arg);
-	// exit(1);
 	return  (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:12 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 23:15:59 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:35:14 by ael-mejd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ int	ft_parse(t_parse *parse)
 	}
 	return (validate_and_close(parse));
 }
-	// char	*clean_copy;

@@ -6,7 +6,7 @@
 /*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 03:13:51 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/23 21:49:30 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:28:35 by ael-mejd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ int	main(int ac, char **av)
 		return (free_parser(&parse), EXIT_FAILURE);
 
 	merge(parse);
-	free_parser(&parse); // Free at the end
 	return (0);
 }
