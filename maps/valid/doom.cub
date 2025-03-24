@@ -1,0 +1,19 @@
+NO ./textures/doom/wall1.xpm
+SO ./textures/doom/wall2.xpm
+EA ./textures/doom/wall3.xpm
+WE ./textures/doom/wall4.xpm
+
+
+
+
+
+		C  					211, 		    5,200   
+				F 220,255,3
+
+
+
+11111111
+10111N01
+10000001
+11111111
+11111111

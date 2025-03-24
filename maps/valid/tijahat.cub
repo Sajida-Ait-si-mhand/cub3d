@@ -1,0 +1,15 @@
+NO textures/tijahat/east.xpm
+SO textures/tijahat/south.xpm
+WE textures/tijahat/west.xpm
+EA textures/tijahat/north.xpm
+
+F 164,169,20
+C 153,204,255
+
+11111111
+10000101
+10010011
+10001001
+100N0101
+10000001
+11111111
