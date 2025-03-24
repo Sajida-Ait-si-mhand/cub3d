@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saait-si <saait-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 02:40:05 by saait-si          #+#    #+#             */
-/*   Updated: 2025/03/24 03:50:15 by ael-mejd         ###   ########.fr       */
+/*   Updated: 2025/03/24 03:56:41 by saait-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ bool	check_f_and_last_line(char **line, int height)
 	while (line[height - 1][f])
 	{
 		if (line[height - 1][f] == '0')
-			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾", line[height
-					- 1]), false);
+			return (ft_error(NULL, "👾 YOU NEED '1' IN LAST ROW 👾",
+					line[height - 1]), false);
 		f++;
 	}
 	return (true);
